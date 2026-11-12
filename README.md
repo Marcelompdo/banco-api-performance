@@ -1,4 +1,4 @@
-# Testes de performance da API bancária
+# Testes de performance da API do Banco
 
 ## Introdução
 
@@ -38,6 +38,18 @@ Repositório de testes de carga e desempenho da API bancária, escritos em JavaS
 - **`utils/`**: contém utilitários compartilhados, como a leitura da URL base da API.
 - **`config/`**: contém a configuração local, usada como valor alternativo quando `BASE_URL` não é informada.
 - **`html-report.html`**: relatório HTML exportado pelo dashboard do k6 ao final da execução.
+
+## Configuração das Variáveis de ambiente
+
+O arquivo `config/config.local.json` define a URL base local da API pela propriedade `baseUrl`. Altere o valor para apontar para o endereço da API que deseja testar:
+
+```json
+{
+  "baseUrl": "http://localhost:3000"
+}
+```
+
+Essa propriedade é uma configuração do projeto, não uma variável de ambiente. Ao executar o k6, a variável `BASE_URL` passada com `-e` tem prioridade sobre `baseUrl`; se ela não for informada, será usada a URL do arquivo de configuração.
 
 ## Instalação e execução
 
